@@ -1,4 +1,4 @@
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, Navigate } from "react-router-dom";
 import Home from "./pages/Home";
 import Landing from "./pages/Landing";
 import About from "./pages/About";
@@ -16,6 +16,9 @@ const App = () => {
       </nav>
 
       <Routes>
+        {/* Redirect the GitHub Pages root to Home */}
+        <Route path="/gptdisguise-site" element={<Navigate to="/" replace />} />
+
         <Route path="/" element={<Home />} />
         <Route path="/landing" element={<Landing />} />
         <Route path="/about" element={<About />} />
