@@ -1,33 +1,29 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import { FaChrome } from "react-icons/fa";
 
 const App = () => {
   const [showNav, setShowNav] = useState(false);
   const [typedText, setTypedText] = useState("");
-  const message = "Have no shame in using AI.";
-  const indexRef = useRef(0);
 
-  // Handle scroll to show nav at top
+  const message = "Have no shame in using AI.";
+
   useEffect(() => {
     const handleScroll = () => {
       setShowNav(window.scrollY === 0);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
-  // Typing effect
-  useEffect(() => {
-    const typingInterval = setInterval(() => {
-      if (indexRef.current < message.length) {
-        setTypedText((prev) => prev + message[indexRef.current]);
-        indexRef.current += 1;
-      } else {
-        clearInterval(typingInterval);
-      }
-    }, 150); // typing speed
-    return () => clearInterval(typingInterval);
+      const maxScroll = 400; // how much scroll completes the typing
+      const scrollY = Math.min(window.scrollY, maxScroll);
+      const progress = scrollY / maxScroll;
+
+      const charsToShow = Math.floor(progress * message.length);
+      setTypedText(message.slice(0, charsToShow));
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -52,6 +48,7 @@ const App = () => {
           {typedText}
           <span className="cursor">|</span>
         </div>
+
         <a
           href="https://www.buymeacoffee.com/gptdisguise"
           target="_blank"
