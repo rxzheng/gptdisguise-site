@@ -3,8 +3,25 @@ import Home from "./pages/Home";
 import Landing from "./pages/Landing";
 import About from "./pages/About";
 import "./App.css";
+import { useEffect } from "react";
 
 const App = () => {
+
+  useEffect(() => {
+    let lastScroll = window.scrollY;
+
+    const handleWheel = (e) => {
+      e.preventDefault(); // prevent default scroll
+      const delta = e.deltaY * 0.3; // reduce scroll speed to 30%
+      lastScroll += delta;
+      window.scrollTo(0, lastScroll);
+    };
+
+    window.addEventListener("wheel", handleWheel, { passive: false });
+
+    return () => window.removeEventListener("wheel", handleWheel);
+  }, []);
+
   return (
     <div className="app">
       <nav className="navbar fade-in">
