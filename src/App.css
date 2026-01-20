@@ -1,0 +1,181 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styling */
+body,
+html,
+#root {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  color: #202124;
+  width: 100%;
+  height: 100%;
+}
+
+
+.app {
+  min-height: 100vh;
+  background-image: url("./assets/googledoc.png");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+}
+
+/* Navigation bar */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #ffffffee;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 100;
+}
+
+.navbar.fade-in {
+  opacity: 1;
+}
+
+.navbar ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.navbar li {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Landing header */
+.landing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  padding: 2rem;
+}
+
+.landing h1 {
+  font-size: 4rem;
+  margin-bottom: 2rem;
+}
+
+.download-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  background-color: #4285f4;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.download-btn:hover {
+  background-color: #357ae8;
+}
+
+.chrome-icon {
+  font-size: 1.2rem;
+}
+
+/* Typing section */
+.typing-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 4rem 2rem;
+  font-size: 1.5rem;
+}
+
+.typing {
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+.cursor {
+  display: inline-block;
+  width: 1ch;
+  background-color: #202124;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+
+.coffee-btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  background-color: #ff813f;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.coffee-btn:hover {
+  background-color: #e67332;
+}
+
+/* Video section */
+.video-section {
+  display: flex;
+  justify-content: center;
+  margin: 4rem 2rem;
+}
+
+.video-container {
+  border: 3px solid black;
+  padding: 0.5rem;
+  max-width: 80%;
+  aspect-ratio: 16 / 9;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 5px;
+}
+.app {
+  min-height: 100vh;
+
+  background-image:
+    url("./assets/googledoc.png"),
+    url("./assets/scrolling.png");
+
+  background-repeat:
+    no-repeat,
+    repeat-y;
+
+  background-position:
+    top center,
+    top center;
+
+  background-size:
+    100% auto,
+    auto;
+
+  background-color: #eaeaea;
+}
+
+.document {
+  max-width: 850px;
+  margin: 0 auto;
+  background: transparent;
+}
